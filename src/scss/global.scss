@@ -1,0 +1,80 @@
+/* 全局样式 */
+a, abbr, acronym, address, applet, audio, article
+big, blockquote, body,
+caption, cite, code, canvas, code
+dd, del, dfn, div, dl, dt, details
+em,
+fieldset, font, form,
+h1, h2, h3, h4, h5, h6, html, header, hgroup
+iframe, img, ins,input,
+kbd, label, legend, li,
+main,
+footer, figcaption, figure,
+object, ol,
+p, pre,
+q,
+s, samp, small, span, strike, strong, sub, sup, section, summary
+table, tbody, tfoot, th, thead, tr, tt,textarea,
+ul,
+var, video /*  */ {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+input,
+textarea {
+  // 支持数字、英文与中文处于同一行
+  word-break: break-all;
+}
+
+a {
+  text-decoration: none; // 去除路由生成的 a标签自带的下划线
+}
+
+li {
+  list-style: none;
+}
+
+html {
+  min-width: 320px;
+}
+
+body {
+  position: relative;
+
+  & > .message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 180px;
+    min-width: 120px;
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #ebeef5;
+    background-color: #edf2fc;
+    transition:
+      opacity 0.3s,
+      transform 0.4s,
+      top 0.4s;
+    overflow: hidden;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+  }
+  & > .success {
+    background-color: #f0f9eb;
+    color: #81cd5c;
+  }
+  & > .error {
+    background-color: #fef0f0;
+    color: #f78585;
+  }
+}

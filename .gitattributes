@@ -1,0 +1,5 @@
+*   eol=lf
+# text=auto 自动格式化
+# eol=lf    入库时将行尾规范为 LF，检出时将行尾转换为 LF
+# eol=crlf  入库时将行尾规范为 CRLF，检出时将行尾转换为 CRLF
+# text  控制行尾的规范性，如果一个文本文件是规范的，则 Git 库中该文件的行尾总是LF
