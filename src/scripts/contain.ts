@@ -1,7 +1,18 @@
-export const parse = (content: any) => {
+export const getJson = (json: string) => new Function(`return ${json}`)()
+export type BaseType = "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined"
+export const baseType = ["string", "number", "bigint", "boolean", "symbol", "undefined"]
+
+export const parse = (content: Record<string, any>) => {
+  // 1 解析类型, 修改数据
   parseType(content)
+  // 2 解析对象，生成字符串格式
+  return tsJsonToStr(content)
+}
+
+export const tsJsonToStr = (tsObj: Record<string, any>) => {
+  if (Object.prototype.toString.call(tsObj) !== '[object Object]') return tsObj
   let currentRow = 0
-  return JSON.stringify(content, null, 4)
+  return JSON.stringify(tsObj, null, 4)
     .replace(/"/g, '')
     .replace(/\\n(\s*)/g, ($1, $2) => {
       if ($2.length === 0) {
@@ -43,8 +54,20 @@ export function parseQuoteType(quoteVal: any) {
 
 // 解析数组
 export function parseArr(arr: any[]) {
-  let val = arr[0]
-  return parse(val) + '[]'
+  let arrTypes = new Set<any>()
+  arr.forEach(val => arrTypes.add(parseType(val)))
+  let str = ""
+  let types = [...arrTypes]
+  let len = types.length
+  console.log("types", types);
+  if (len === 0) return `any[]`
+  else if (len === 1) return `${tsJsonToStr(types[0])}[]`
+  else {
+    types.forEach((v, i) => {
+      str += `${tsJsonToStr(v)}${i === len - 1 ? '' : ' '}${i === len - 1 ? '' : '| '}`
+    })
+  }
+  return `(${str})[]`
 }
 
 // 解析函数
