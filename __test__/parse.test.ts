@@ -16,6 +16,7 @@ describe("parse base type", () => {
   })
   it("parse base type whitch more than two", () => {
     expect(parse(getJson("{ a:  1, b: '1'}"))).toEqual(tsJsonToStr({ a: "number", b: "string" }))
+    expect(parse(getJson("{a:1,b:2}"))).toEqual(tsJsonToStr({ a: "number", b: "number" }))
     expect(parse(getJson("{ a:  null, b: true }"))).toEqual(tsJsonToStr({ a: "null", b: "boolean" }))
     expect(parse(getJson("{ a:  undefined, b: Symbol('a') }"))).toEqual(tsJsonToStr({ a: "undefined", b: "symbol" }))
   })
