@@ -1,24 +1,11 @@
 {
-  "name": "test-ts",
+  "name": "@chrome/json-ts",
   "version": "1.0.0",
+  "private": "true",
   "author": "sishen",
   "license": "MIT",
   "description": "CLI to some JavaScript string utilities",
-  "keywords": [],
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": "",
-  "homepage": "",
-  "bugs": "",
   "type": "module",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "exports": {
-    "import": "./dist/index.js",
-    "require": "./dist/index.cjs"
-  },
-  "types": "dist/index.d.ts",
   "scripts": {
     "watch": "cross-env NODE_ENV=development gulp",
     "b": "gulp",
@@ -31,10 +18,6 @@
     "c": " git push --tags",
     "push": "git checkout main & git push gitee main & git push github main"
   },
-  "files": [
-    "index.js",
-    "dist/"
-  ],
   "devDependencies": {
     "@rollup/plugin-commonjs": "23.0.4",
     "@rollup/plugin-node-resolve": "15.0.1",
