@@ -4,7 +4,7 @@
   "private": "true",
   "author": "sishen",
   "license": "MIT",
-  "description": "CLI to some JavaScript string utilities",
+  "description": "Input JSON, output TS type",
   "type": "module",
   "scripts": {
     "watch": "cross-env NODE_ENV=development gulp",
