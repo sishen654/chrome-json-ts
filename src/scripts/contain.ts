@@ -59,7 +59,6 @@ export function parseArr(arr: any[]) {
   let str = ""
   let types = [...arrTypes]
   let len = types.length
-  console.log("types", types);
   if (len === 0) return `any[]`
   else if (len === 1) return `${tsJsonToStr(types[0])}[]`
   else {
